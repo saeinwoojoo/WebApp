@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="app_name">"Java웹앱"</string>
+
+    <string name="msg_please_wait">"잠시 기다려주세요\u2026"</string>
+    <string name="msg_no_such_app_installed_in_the_device">"해당 작업을 수행할 어플리케이션이 설치되어 있지 않습니다."</string>
+    <string name="msg_exit_app_confirm">"앱을 종료하시겠습니까?"</string>
+    <string name="msg_press_back_key_again_to_exit">"\'뒤로\' 버튼을 한번 더 누르면 종료됩니다."</string>
+
+    <string name="btn_msg_yes">"예"</string>
+    <string name="btn_msg_no">"아니오"</string>
+
+</resources>

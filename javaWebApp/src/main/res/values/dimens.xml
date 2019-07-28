@@ -1,0 +1,5 @@
+<resources>
+    <dimen name="title_progress_bar_height">5dp</dimen>
+    <dimen name="title_progress_bar_radius">1dp</dimen>
+    <dimen name="custom_scroll_bar_radius">0dp</dimen>
+</resources>
