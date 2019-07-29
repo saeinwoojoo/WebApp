@@ -4,8 +4,6 @@
 
     <string name="app_name">"JavaWebApp"</string>
 
-    <string name="home_url" translatable="false">"https://nonojapan.com"</string>
-
     <string name="msg_please_wait">"Please wait\u2026"</string>
     <string name="msg_no_such_app_installed_in_the_device">"No such application installed in the device to handle the action."</string>
     <string name="msg_exit_app_confirm">"Are you sure you want to exit app?"</string>

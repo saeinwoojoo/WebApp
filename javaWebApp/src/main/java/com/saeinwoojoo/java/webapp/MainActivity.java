@@ -7,6 +7,7 @@ import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
+import com.saeinwoojoo.android.thememanager.library.ThemeManager;
 import com.saeinwoojoo.java.webapp.webview.WebChromeClientEx;
 import com.saeinwoojoo.java.webapp.webview.WebViewClientEx;
 
@@ -28,7 +29,9 @@ public class MainActivity extends BaseActivity {
 
         setContentView(R.layout.activity_main);
 
-        HOME_URL = getResources().getString(R.string.home_url);
+//        HOME_URL = getResources().getString(R.string.home_url);
+        HOME_URL = ThemeManager.getInstance().getString(getApplicationContext(),
+                R.string.home_url, getString(R.string.resource_pkg_name_global));
 
         mWebView = findViewById(R.id.web_view);
         if (null != mWebView) {

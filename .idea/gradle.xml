@@ -9,7 +9,9 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/javaWebApp" />
+            <option value="$PROJECT_DIR$/java_webapp_resource" />
             <option value="$PROJECT_DIR$/kotlinWebApp" />
+            <option value="$PROJECT_DIR$/kotlin_webapp_resource" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

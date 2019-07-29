@@ -22,7 +22,7 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
     implementation "com.android.support:appcompat-v7:${supportLibVersion}"
     implementation "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}"
     implementation "com.android.support:design:${supportLibVersion}"
@@ -30,7 +30,12 @@ dependencies {
     androidTestImplementation "com.android.support.test:runner:${runner_version}"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:${espresso_version}"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlin_version}"
+    implementation(name:'themelib_0.0.1', ext:'aar')
 }
+
 repositories {
     mavenCentral()
+    flatDir {
+        dirs 'libs', '../libs'
+    }
 }

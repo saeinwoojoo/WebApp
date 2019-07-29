@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="USE_DLG_PROGRESS_BAR_IN_WEB_VIEW">false</bool>
+</resources>
