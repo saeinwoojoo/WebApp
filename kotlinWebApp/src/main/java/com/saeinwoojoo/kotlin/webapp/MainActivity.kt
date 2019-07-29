@@ -5,6 +5,7 @@ import android.support.design.widget.FloatingActionButton
 import android.support.design.widget.Snackbar
 import android.webkit.WebSettings
 import android.webkit.WebView
+import com.saeinwoojoo.android.thememanager.library.ThemeManager
 
 import com.saeinwoojoo.kotlin.webapp.webview.WebChromeClientEx
 import com.saeinwoojoo.kotlin.webapp.webview.WebViewClientEx
@@ -22,7 +23,9 @@ class MainActivity : BaseActivity() {
 
         setContentView(R.layout.activity_main)
 
-        HOME_URL = resources.getString(R.string.home_url)
+//        HOME_URL = resources.getString(R.string.home_url)
+        HOME_URL = ThemeManager.getInstance().getString(applicationContext,
+                R.string.home_url, getString(R.string.resource_pkg_name_global))
 
         mWebView = findViewById<WebView>(R.id.web_view)
         if (null != mWebView) {

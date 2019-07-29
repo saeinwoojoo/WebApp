@@ -16,6 +16,7 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
+import com.saeinwoojoo.android.thememanager.library.ThemeManager
 import com.saeinwoojoo.kotlin.webapp.BaseActivity
 import com.saeinwoojoo.kotlin.webapp.R
 import java.net.URLDecoder
@@ -38,7 +39,8 @@ class WebViewClientEx(baseActivity: BaseActivity?) : WebViewClient() {
 
         if (null != baseActivity) {
             mBaseActivity = baseActivity
-            mUseDialogProgressBar = baseActivity.resources.getBoolean(R.bool.USE_DLG_PROGRESS_BAR_IN_WEB_VIEW)
+            mUseDialogProgressBar = ThemeManager.getInstance().getBoolean(baseActivity.applicationContext,
+                    R.bool.USE_DLG_PROGRESS_BAR_IN_WEB_VIEW, baseActivity.getString(R.string.resource_pkg_name_global));
             if (mUseDialogProgressBar) {
                 mProgressDlg = ProgressDialog(baseActivity)
                 mProgressDlg!!.setMessage(baseActivity.resources.getText(R.string.msg_please_wait))
