@@ -3,16 +3,19 @@ package com.saeinwoojoo.java.webapp;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
+import android.view.Window;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import com.saeinwoojoo.android.thememanager.library.ThemeManager;
 
 /**
  * Base Activity.
@@ -35,6 +38,18 @@ public class BaseActivity extends AppCompatActivity {
         if (null != actionBar) {
             actionBar.setDisplayShowHomeEnabled(true);
             actionBar.setIcon(R.mipmap.ic_launcher);
+
+            int color = ThemeManager.getInstance().getColor(getApplicationContext(),
+                    R.color.colorPrimary, getString(R.string.resource_pkg_name_global));
+            ColorDrawable colorDrawable = new ColorDrawable(color);
+            actionBar.setBackgroundDrawable(colorDrawable);
+        }
+
+        Window window = getWindow();
+        if (null != window) {
+            window.setStatusBarColor(ThemeManager.getInstance().getColor(
+                    getApplicationContext(), R.color.colorPrimaryDark,
+                    getString(R.string.resource_pkg_name_global)));
         }
     }
 

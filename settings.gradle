@@ -1,1 +1,1 @@
-include ':javaWebApp', ':kotlinWebApp', ':java_webapp_resource', ':kotlin_webapp_resource'
+include ':javaWebApp', ':kotlinWebApp', ':java_webapp_theme', ':kotlin_webapp_theme'

@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">KotlinWebAppResource</string>
+    <string name="app_name">Java WebApp Theme</string>
     <string name="home_url" translatable="false">"https://www.google.com"</string>
 </resources>
