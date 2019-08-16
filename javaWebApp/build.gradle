@@ -2,7 +2,8 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion project.ext.compileSdkVersion
-    buildToolsVersion project.ext.buildToolVersion
+    buildToolsVersion project.ext.buildToolsVersion
+
     defaultConfig {
         applicationId "com.saeinwoojoo.java.webapp"
         minSdkVersion project.ext.minSdkVersion
@@ -11,6 +12,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -21,18 +23,11 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+    implementation fileTree(dir: '../libs', include: ['*.jar', '*.aar'])
     implementation "com.android.support:appcompat-v7:${supportLibVersion}"
     implementation "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}"
     implementation "com.android.support:design:${supportLibVersion}"
     testImplementation "junit:junit:${junit_version}"
     androidTestImplementation "com.android.support.test:runner:${runner_version}"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:${espresso_version}"
-    implementation(name:'themelib_0.0.1', ext:'aar')
-}
-
-repositories {
-    mavenCentral()
-    flatDir {
-        dirs 'libs', '../libs'
-    }
 }
