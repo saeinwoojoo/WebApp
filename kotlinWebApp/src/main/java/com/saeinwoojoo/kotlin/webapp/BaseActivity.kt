@@ -9,6 +9,7 @@ import android.support.v7.app.ActionBar
 import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
 import android.util.Log
+import android.view.Gravity
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.Toast
@@ -121,64 +122,45 @@ open class BaseActivity : AppCompatActivity() {
      * @param resId The resource id of the string resource to use. Can be formatted text.
      */
     fun showToast(resId: Int) {
-        if (null == mToast) {
-            try {
-                mToast = Toast.makeText(applicationContext, resId, Toast.LENGTH_LONG)
-            } catch (e: Resources.NotFoundException) {
-                e.printStackTrace()
-                return
-            } catch (e: Exception) {
-                e.printStackTrace()
-                return
-            }
-        } else {
-            try {
-                mToast?.setText(resId)
-            } catch (e: RuntimeException) {
-                e.printStackTrace()
-                return
-            }
+        mToast?.cancel()
+        mToast = null
 
-            mToast?.duration = Toast.LENGTH_LONG
-//            mToast?.setGravity(Gravity.BOTTOM, 0, 0)
+        try {
+            mToast = Toast.makeText(applicationContext, resId, Toast.LENGTH_LONG)
+            mToast?.show()
+        } catch (e: Resources.NotFoundException) {
+            e.printStackTrace()
+        } catch (e: RuntimeException) {
+            e.printStackTrace()
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
-
-        mToast?.show()
     }
 
     /**
      * Make a standard toast that just contains a text view with the text from a resource.
      *
      * Set the bottom location at which the notification should appear on the screen.
-     * @see android.view.Gravity
+     * @see Gravity
+     *
      *
      * @param resId The resource id of the string resource to use. Can be formatted text.
      * @param duration How long to display the message. Either Toast.LENGTH_SHORT or Toast.LENGTH_LONG
      */
     fun showToast(resId: Int, duration: Int) {
-        if (null == mToast) {
-            try {
-                mToast = Toast.makeText(this, resId, duration)
-            } catch (e: Resources.NotFoundException) {
-                e.printStackTrace()
-                return
-            } catch (e: Exception) {
-                e.printStackTrace()
-                return
-            }
-        } else {
-            try {
-                mToast?.setText(resId)
-            } catch (e: RuntimeException) {
-                e.printStackTrace()
-                return
-            }
+        mToast?.cancel()
+        mToast = null
 
-            mToast?.duration = duration
-//            mToast?.setGravity(Gravity.BOTTOM, 0, 0)
+        try {
+            mToast = Toast.makeText(this, resId, duration)
+            mToast?.show()
+        } catch (e: Resources.NotFoundException) {
+            e.printStackTrace()
+        } catch (e: RuntimeException) {
+            e.printStackTrace()
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
-
-        mToast?.show()
     }
 
     /**
@@ -187,32 +169,23 @@ open class BaseActivity : AppCompatActivity() {
      * @param resId The resource id of the string resource to use. Can be formatted text.
      * @param duration How long to display the message. Either Toast.LENGTH_SHORT or Toast.LENGTH_LONG
      * @param gravity The location at which the notification should appear on the screen.
-     * @see android.view.Gravity
+     * @see Gravity
      */
     fun showToast(resId: Int, duration: Int, gravity: Int) {
-        if (null == mToast) {
-            try {
-                mToast = Toast.makeText(this, resId, duration)
-            } catch (e: Resources.NotFoundException) {
-                e.printStackTrace()
-                return
-            } catch (e: Exception) {
-                e.printStackTrace()
-                return
-            }
-        } else {
-            try {
-                mToast?.setText(resId)
-            } catch (e: RuntimeException) {
-                e.printStackTrace()
-                return
-            }
+        mToast?.cancel()
+        mToast = null
 
-            mToast?.duration = duration
+        try {
+            mToast = Toast.makeText(this, resId, duration)
+            mToast?.setGravity(gravity, mToast!!.xOffset, mToast!!.yOffset)
+            mToast?.show()
+        } catch (e: Resources.NotFoundException) {
+            e.printStackTrace()
+        } catch (e: RuntimeException) {
+            e.printStackTrace()
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
-
-        mToast?.setGravity(gravity, 0, 0)
-        mToast?.show()
     }
 
     /**
@@ -225,28 +198,23 @@ open class BaseActivity : AppCompatActivity() {
         if (TextUtils.isEmpty(text))
             return
 
-        if (null == mToast) {
-            mToast = Toast.makeText(this, text, Toast.LENGTH_LONG)
-        } else {
-            try {
-                mToast?.setText(text)
-            } catch (e: RuntimeException) {
-                e.printStackTrace()
-                return
-            }
+        mToast?.cancel()
+        mToast = null
 
-            mToast?.duration = Toast.LENGTH_LONG
-//            mToast?.setGravity(Gravity.BOTTOM, 0, 0)
+        mToast = Toast.makeText(this, text, Toast.LENGTH_LONG)
+        try {
+            mToast?.show()
+        } catch (e: RuntimeException) {
+            e.printStackTrace()
         }
-
-        mToast?.show()
     }
 
     /**
      * Make a standard toast that just contains a text view.
      *
      * Set the bottom location at which the notification should appear on the screen.
-     * @see android.view.Gravity
+     * @see Gravity
+     *
      *
      * @param text The text to show. Can be formatted text.
      * @param duration How long to display the message. Either Toast.LENGTH_SHORT or Toast.LENGTH_LONG
@@ -255,21 +223,15 @@ open class BaseActivity : AppCompatActivity() {
         if (TextUtils.isEmpty(text))
             return
 
-        if (null == mToast) {
-            mToast = Toast.makeText(this, text, duration)
-        } else {
-            try {
-                mToast?.setText(text)
-            } catch (e: RuntimeException) {
-                e.printStackTrace()
-                return
-            }
+        mToast?.cancel()
+        mToast = null
 
-            mToast?.duration = duration
-//            mToast?.setGravity(Gravity.BOTTOM, 0, 0)
+        mToast = Toast.makeText(this, text, duration)
+        try {
+            mToast?.show()
+        } catch (e: RuntimeException) {
+            e.printStackTrace()
         }
-
-        mToast?.show()
     }
 
     /**
@@ -283,21 +245,16 @@ open class BaseActivity : AppCompatActivity() {
         if (TextUtils.isEmpty(text))
             return
 
-        if (null == mToast) {
-            mToast = Toast.makeText(this, text, duration)
-        } else {
-            try {
-                mToast?.setText(text)
-            } catch (e: RuntimeException) {
-                e.printStackTrace()
-                return
-            }
+        mToast?.cancel()
+        mToast = null
 
-            mToast?.duration = duration
+        mToast = Toast.makeText(this, text, duration)
+        mToast?.setGravity(gravity, mToast!!.xOffset, mToast!!.yOffset)
+        try {
+            mToast?.show()
+        } catch (e: RuntimeException) {
+            e.printStackTrace()
         }
-
-        mToast?.setGravity(gravity, 0, 0)
-        mToast?.show()
     }
 
     companion object {
